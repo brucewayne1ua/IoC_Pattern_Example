@@ -8,18 +8,23 @@ public class TestSpring {
 				"applicationContext.xml"
 		);
 
-		MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-		MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+		ClassicalMusic classicalMusic = (ClassicalMusic)context.getBean("classicalMusic");
+		System.out.println(classicalMusic.getSong());
 
-		Boolean compracion = firstMusicPlayer == secondMusicPlayer;
-		System.out.println(firstMusicPlayer);
-		System.out.println(secondMusicPlayer);
 
-		firstMusicPlayer.setVolume(10);
-		System.out.println(firstMusicPlayer.getVolume());
-		System.out.println(secondMusicPlayer.getVolume());
-		//System.out.println(musicPlayer.getName());
-		//System.out.println(musicPlayer.getVolume());
+
+//		MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//		MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+//
+//		Boolean compracion = firstMusicPlayer == secondMusicPlayer;
+//		System.out.println(firstMusicPlayer);
+//		System.out.println(secondMusicPlayer);
+//
+//		firstMusicPlayer.setVolume(10);
+//		System.out.println(firstMusicPlayer.getVolume());
+//		System.out.println(secondMusicPlayer.getVolume());
+//		//System.out.println(musicPlayer.getName());
+//		//System.out.println(musicPlayer.getVolume());
 		context.close();
 	}
 }
