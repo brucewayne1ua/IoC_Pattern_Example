@@ -1,30 +1,20 @@
 package Main;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestSpring {
 	public static void main(String[] args) {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-				"applicationContext.xml"
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+				SpringConfig.class
 		);
 
-		ClassicalMusic classicalMusic = (ClassicalMusic)context.getBean("classicalMusic");
-		System.out.println(classicalMusic.getSong());
+		MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
+		System.out.println(musicPlayer.getVolume());
+		System.out.println(musicPlayer.getName());
 
+		ClassicalMusic classicalMusic = context.getBean("classicalMusic", ClassicalMusic.class);
+		ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
 
-
-//		MusicPlayer firstMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//		MusicPlayer secondMusicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
-//
-//		Boolean compracion = firstMusicPlayer == secondMusicPlayer;
-//		System.out.println(firstMusicPlayer);
-//		System.out.println(secondMusicPlayer);
-//
-//		firstMusicPlayer.setVolume(10);
-//		System.out.println(firstMusicPlayer.getVolume());
-//		System.out.println(secondMusicPlayer.getVolume());
-//		//System.out.println(musicPlayer.getName());
-//		//System.out.println(musicPlayer.getVolume());
 		context.close();
 	}
 }

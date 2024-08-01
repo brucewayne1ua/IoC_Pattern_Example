@@ -1,14 +1,11 @@
 package Main;
 
-public class RockMusic implements Music {
-	private String song;
+import org.springframework.stereotype.Component;
 
+
+public class RockMusic implements Music {
 	@Override
 	public String getSong() {
-		return song;
-	}
-
-	public void setSong(String song) {
-		this.song = song;
+		return "Some Rock Music";
 	}
 }

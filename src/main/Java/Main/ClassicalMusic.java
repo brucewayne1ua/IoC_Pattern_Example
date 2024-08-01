@@ -1,29 +1,21 @@
 package Main;
 
+import javax.annotation.PreDestroy;
+
+
 public class ClassicalMusic implements Music {
 
-	private ClassicalMusic(){}
-
-	public static ClassicalMusic getClassicalMusic(){
-		return new ClassicalMusic();
+	public void DoMyInit() {
+		System.out.println("Do MyInit");
 	}
 
-	public void doMyInit(){
-		System.out.println("doMyInitialization");
+	@PreDestroy
+	public void DoMyDestroy() {
+		System.out.println("Do MyDestroy");
 	}
-
-	public void doMyDestroy(){
-		System.out.println("doMyDestroy");
-	}
-
-	private String song;
 
 	@Override
 	public String getSong() {
-		return song;
-	}
-
-	public void setSong(String song) {
-		this.song = song;
+		return "Some Classical Music";
 	}
 }

@@ -1,40 +1,34 @@
 package Main;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MusicPlayer {
-	private List<Music> musicList = new ArrayList<>();
+	private Music rockMusic;
+	private Music classicalMusic;
 	private String name;
 	private int volume;
 
-	public String getName(){
+	public MusicPlayer(Music rockMusic, Music classicalMusic) {
+		this.rockMusic = rockMusic;
+		this.classicalMusic = classicalMusic;
+	}
+
+	public String playMusic() {
+		return "Playing: " + rockMusic.getSong() + " and " + classicalMusic.getSong();
+	}
+
+
+	public String getName() {
 		return name;
 	}
 
-	public void setName(String name){
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getVolume(){
+	public int getVolume() {
 		return volume;
 	}
 
-	public void setVolume(int volume){
+	public void setVolume(int volume) {
 		this.volume = volume;
-	}
-
-	public List<Music> getMusicList() {
-		return musicList;
-	}
-
-	public void setMusicList(List<Music> musicList){
-		this.musicList = musicList;
-	}
-
-	public void playMusicList(){
-		for (Music music : musicList) {
-			System.out.println("Playing..." + music.getSong());
-		}
 	}
 }
