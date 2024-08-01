@@ -1,9 +1,19 @@
 package Main;
 
-import org.springframework.stereotype.Component;
+import javax.annotation.PreDestroy;
 
-@Component("classicalMusic")
+
 public class ClassicalMusic implements Music {
+
+	public void DoMyInit() {
+		System.out.println("Do MyInit");
+	}
+
+	@PreDestroy
+	public void DoMyDestroy() {
+		System.out.println("Do MyDestroy");
+	}
+
 	@Override
 	public String getSong() {
 		return "Some Classical Music";

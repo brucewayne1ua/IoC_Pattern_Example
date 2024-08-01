@@ -1,23 +1,34 @@
 package Main;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
-@Component
 public class MusicPlayer {
-	private Music music;
+	private Music rockMusic;
+	private Music classicalMusic;
+	private String name;
+	private int volume;
 
-	@Autowired
-	public MusicPlayer(@Qualifier("classicalMusic") Music music) { // Конструктор для ClassicalMusic
-		this.music = music;
+	public MusicPlayer(Music rockMusic, Music classicalMusic) {
+		this.rockMusic = rockMusic;
+		this.classicalMusic = classicalMusic;
 	}
 
-	public void setMusic(@Qualifier("rockMusic") Music music) { // Метод для установки RockMusic
-		this.music = music;
+	public String playMusic() {
+		return "Playing: " + rockMusic.getSong() + " and " + classicalMusic.getSong();
 	}
 
-	public void playMusicList() {
-		System.out.println("Playing: " + music.getSong());
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getVolume() {
+		return volume;
+	}
+
+	public void setVolume(int volume) {
+		this.volume = volume;
 	}
 }
